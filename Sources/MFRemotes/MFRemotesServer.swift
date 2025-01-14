@@ -1,10 +1,9 @@
-/*--------------------------------------------------------------------------*/
-/*   /\/\/\__/\/\/\        MFRemotes                                        */
-/*   \/\/\/..\/\/\/                                                         */
-/*        |  |             Easy peer to peer connection framework           */
-/*        (oo)                                                              */
-/* MooseFactory Software                                                    */
-/*--------------------------------------------------------------------------*/
+//   /\/\__/\/\      MFRemotes
+//   \/\/..\/\/      Peer to peer connection framework
+//      (oo)
+//  MooseFactory
+//    Software       ©2024 - Tristan Leblanc
+//  --------------------------------------------------
 //  MFRemoteServer.swift
 //  Created by Tristan Leblanc on 27/12/2024.
 
@@ -23,7 +22,7 @@ public extension MFRemotes {
         @Published public var sessionHostName: String?
         @Published public var running:Bool = false
         
-        @Published var remoteInterfaces: [RemoteInterface] = []
+        @Published public private(set) var remoteInterfaces: [RemoteInterface] = []
         
         var serviceInfo: ServiceInfo
         
@@ -50,6 +49,7 @@ public extension MFRemotes {
             }
         }
         
+        @discardableResult
         func makeRemoteInterface(with connection: NWConnection) -> RemoteInterface {
             let interface = RemoteInterface(connection: connection)
             remoteInterfaces.append(interface)
@@ -89,13 +89,14 @@ public extension MFRemotes {
         }
         
         private func remoteDidConnect(_ connection: NWConnection) {
-            
+            makeRemoteInterface(with: connection)
         }
         
         private func remoteDidCancel(_ connection: NWConnection, error: Error?) {
-            
+            remoteInterfaces.removeAll { remote in
+                remote.connection === connection
+            }
         }
-        
         
         @MainActor func received(data: Data) {
             api.dataHandler(data)

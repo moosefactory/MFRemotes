@@ -8,8 +8,6 @@
 
 ### 1 - Start a remotes session
 
-There is only one remote session running.
-
 Import MFRemotes and create a server object.
 
 ```
@@ -31,7 +29,7 @@ class MyController {
 
 ### 2 - Start a remotes session
 
-From this very moment, using a Network browser on a device around will detect this session.
+Uing a Network browser on a device around will detect the session.
 
 ```
 import Foundation

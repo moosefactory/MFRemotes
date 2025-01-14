@@ -1,10 +1,9 @@
-/*--------------------------------------------------------------------------*/
-/*   /\/\/\__/\/\/\        MFRemotes                                        */
-/*   \/\/\/..\/\/\/                                                         */
-/*        |  |             Easy peer to peer connection framework           */
-/*        (oo)                                                              */
-/* MooseFactory Software                                                    */
-/*--------------------------------------------------------------------------*/
+//   /\/\__/\/\      MFRemotes
+//   \/\/..\/\/      Peer to peer connection framework
+//      (oo)
+//  MooseFactory
+//    Software       ©2024 - Tristan Leblanc
+//  --------------------------------------------------
 //  RemoteConnector.swift
 //  Created by Tristan Leblanc on 29/08/2024.
 

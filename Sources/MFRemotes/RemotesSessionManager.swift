@@ -1,10 +1,9 @@
-/*--------------------------------------------------------------------------*/
-/*   /\/\/\__/\/\/\        MFRemotes                                        */
-/*   \/\/\/..\/\/\/                                                         */
-/*        |  |             Easy peer to peer connection framework           */
-/*        (oo)                                                              */
-/* MooseFactory Software                                                    */
-/*--------------------------------------------------------------------------*/
+//   /\/\__/\/\      MFRemotes
+//   \/\/..\/\/      Peer to peer connection framework
+//      (oo)
+//  MooseFactory
+//    Software       ©2024 - Tristan Leblanc
+//  --------------------------------------------------
 //  RemotesSessionManager.swift
 //  Created by Tristan Leblanc on 27/12/2024.
 
@@ -24,6 +23,10 @@ public extension MFRemotes {
     ///     - manage connections with remotes,
     
     class RemotesSessionManager {
+        
+        deinit {
+            
+        }
         
         // TODO: move in interface
         var api: MFRemotesAPIProtocol
@@ -45,8 +48,8 @@ public extension MFRemotes {
         
         // MARK: Browse for available servers
         
-        private lazy var networkBrowser: NetworkBrowser = {
-            let networkBrowser = NetworkBrowser()
+        private lazy var networkBrowser: BrowserSession = {
+            let networkBrowser = BrowserSession()
             return networkBrowser
         }()
         
@@ -68,7 +71,7 @@ public extension MFRemotes {
             guard let remote = remote else { return }
             remote.shutDown()
         }
-        
+                
         public func discoverRemotes() {
             networkBrowser.start()
             

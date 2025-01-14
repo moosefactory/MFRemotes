@@ -1,10 +1,10 @@
-/*--------------------------------------------------------------------------*/
-/*   /\/\/\__/\/\/\        MFRemotes                                        */
-/*   \/\/\/..\/\/\/                                                         */
-/*        |  |             Easy peer to peer connection framework           */
-/*        (oo)                                                              */
-/* MooseFactory Software                                                    */
-/*--------------------------------------------------------------------------*/
+//   /\/\__/\/\      MFRemotes
+//   \/\/..\/\/      Peer to peer connection framework
+//      (oo)
+//  MooseFactory
+//    Software       ©2024 - Tristan Leblanc
+//  --------------------------------------------------
+
 //  BonjourServer.swift
 //  Created by Tristan Leblanc on 29/08/2024.
 
@@ -105,6 +105,9 @@ public extension MFRemotes {
             }
             
             listener.newConnectionHandler = { connection in
+                if connection.endpoint.interface?.name == self.name {
+                    return
+                }
                 self.connections.append(connection)
                 self.startReceivingMessages(from: connection)
                 

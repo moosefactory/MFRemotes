@@ -1,10 +1,9 @@
-/*--------------------------------------------------------------------------*/
-/*   /\/\/\__/\/\/\        MFRemotes                                        */
-/*   \/\/\/..\/\/\/                                                         */
-/*        |  |             Easy peer to peer connection framework           */
-/*        (oo)                                                              */
-/* MooseFactory Software                                                    */
-/*--------------------------------------------------------------------------*/
+//   /\/\__/\/\      MFRemotes
+//   \/\/..\/\/      Peer to peer connection framework
+//      (oo)
+//  MooseFactory
+//    Software       ©2024 - Tristan Leblanc
+//  --------------------------------------------------
 //  NetworkBrowser
 //  Created by Tristan Leblanc on 29/08/2024.
 
@@ -14,11 +13,10 @@ import Combine
 
 /// NetworkBrowser object is responsible of sniffing the bonjour servers around
 ///
-public class NetworkBrowser {
+public class BrowserSession {
 
     // The underlying NWBrowser instance
     var networkBrowser: NWBrowser? = nil
-    
     
     @Published public var browseResults = [NWBrowser.Result]()
 

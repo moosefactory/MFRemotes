@@ -1,10 +1,9 @@
-/*--------------------------------------------------------------------------*/
-/*   /\/\/\__/\/\/\        MFRemotes                                        */
-/*   \/\/\/..\/\/\/                                                         */
-/*        |  |             Easy peer to peer connection framework           */
-/*        (oo)                                                              */
-/* MooseFactory Software                                                    */
-/*--------------------------------------------------------------------------*/
+//   /\/\__/\/\      MFRemotes
+//   \/\/..\/\/      Peer to peer connection framework
+//      (oo)
+//  MooseFactory
+//    Software       ©2024 - Tristan Leblanc
+//  --------------------------------------------------
 //  RemoteInterface.swift
 //  Created by Tristan Leblanc on 27/12/2024.
 
@@ -45,5 +44,15 @@ public class RemoteInterface: Identifiable {
                 return
             }
         }))
+    }
+}
+
+extension RemoteInterface: CustomStringConvertible {
+    
+    public var description: String {
+        var out: [String] = [
+            "Remote Interface - \(uuid.uuidString.prefix(4))"
+        ]
+        return out.joined(separator: "\r")
     }
 }
